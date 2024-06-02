@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+{% block content %}
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="bg-white p-5 rounded shadow shadow-5">
+                    <h3 class="text-center ">Play Fair Cipher Encryption</h3>
+                    <form method="post" class="">
+                        <label for="encrypt-decrypt-select">Choose action:</label><br>
+                        <select class="form-select" name="option" id="encrypt-decrypt-select" onchange="toggleEncryptDecrypt()">
+                            <option value="encrypt">Encrypt</option>
+                            <option value="decrypt">Decrypt</option>
+                        </select><br><br>
+
+                        <input type="text" id="plaintext" class="form-control" name="plaintext" placeholder="Enter plaintext To Encrypt" required><br><br>
+
+                        <input type="text" class="form-control" id="key" name="key" placeholder="Enter Key" required><br><br>
+                        <button class="btn btn-primary" type="submit" id="submit-button">Encrypt</button>
+                    </form>
+                    {% if option=='encrypt' or option=='decrypt' %}
+                    <div class="result">
+                        <h2>Result</h2>
+                        {% if option=='encrypt' %}
+                        <p class="text"> <span class="labeltext">Plaintext : </span>{{ plaintext }}</p>
+                        <p class="text"><span class="key"> Key : </span>{{ key }}</p>
+                        <p class="text"><span class="labeltext">Ciphertext : </span>{{ ciphertext }}</p>
+                        {% endif %}
+                        {% if option=='decrypt' %}
+                        <p class="text"><span class="labeltext">Ciphertext :</span> {{ ciphertext }}</p>
+                        <p class="text"><span class="key">Key : </span>{{ key }}</p>
+                        <p class="text"> <span class="labeltext">Decrypted Text :</span> {{ decrypted_text }}</p>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

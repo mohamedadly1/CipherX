@@ -1,0 +1,32 @@
+
+.animation-container {
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    color: #333;
+}
+
+h2 span {
+    animation: changeWord 2s infinite;
+}
+
+@keyframes changeWord {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a082f !important;
+    color: #f2f2f2; /* Text color for dark mode */
+    margin: 0;
+    padding: 0;
+
+  
+    height: 100vh;
+}
+
+#word{
+    color: #1be3e3;
+}
